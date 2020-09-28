@@ -3,8 +3,6 @@ const user = require('../controllers/user');
 const router = express.Router();
 const userController = require('../controllers/user')();
 
-const User = require('../models/User.js');
-
 router.get('/', userController.getAll);
 router.post('/add', userController.add);
 router.put('/edit/:id', userController.edit);

@@ -22,7 +22,7 @@ function auth(roles = []) {
                 if (roles.length && !roles.includes(user.role)) {
 
                     // Check if users role is authorized
-                    return res.status(401).json({ message: 'Unauthorized' });
+                    return res.status(401).json({ message: 'User unauthorized' });
                 }
                 else {
 
