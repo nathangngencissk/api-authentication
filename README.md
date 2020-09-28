@@ -1,4 +1,5 @@
-# api-authentication
+# Auth System
+Authentication + Authorization system in NodeJS + MongoDB done through an auth middleware.
 
 ## How it works
 The authentication process is controlled through a JWT token given to the user at login, whereas the authorization process is done through the role of the user.
@@ -9,3 +10,6 @@ When a requisition is made to an endpoint, the endpoint can be public, where any
 `router.get('/', booksController.getAll);` // Public endpoint\
 `router.get('/', auth(), booksController.getAll);` // Authentication required\
 `router.get('/', auth(Role.Admin), booksController.getAll);` // Authentication + authorization
+
+## How to run
+`docker-compose up`
