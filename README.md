@@ -12,7 +12,7 @@ When a requisition is made to an endpoint, the endpoint can be public, where any
 ## Implementation example
 `router.get('/', booksController.getAll);` // Public endpoint\
 `router.get('/', auth(), booksController.getAll);` // Authentication required\
-`router.get('/', auth(Role.Admin), booksController.getAll);` // Authentication + authorization
+`router.get('/', auth('Admin'), booksController.getAll);` // Authentication + authorization
 
 ## How to run
 `docker-compose up`
