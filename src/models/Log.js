@@ -6,6 +6,10 @@ const logSchema = new Schema({
         type: String,
         default: + new Date()
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     description: {
         type: String,
         required: true

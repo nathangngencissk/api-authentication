@@ -18,7 +18,8 @@ router.post('/authenticate', (req, res) => {
                 { expiresIn: '24h' });
 
             const newLog = new Log({
-                description: `User ${user._id} logged in.`
+                user: user._id,
+                description: 'User logged in.'
             });
 
             newLog.save();

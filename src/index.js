@@ -10,14 +10,16 @@ const user = require('./routes/user');
 const auth = require('./routes/auth');
 const book = require('./routes/book');
 const log = require('./routes/log');
+const role = require('./routes/role');
 
 app.use('/api/auth', auth);
 app.use('/api/user', user);
 app.use('/api/book', book);
 app.use('/api/log', log);
+app.use('/api/role', role);
 
 mongoose
-    .connect('mongodb://db:27017/crud-node-mongo-docker', {
+    .connect('mongodb://db:27017/auth', {
         useNewUrlParser: true,
         useFindAndModify: false
     })
