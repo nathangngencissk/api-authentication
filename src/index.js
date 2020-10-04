@@ -8,15 +8,13 @@ app.use(bodyParser.json());
 
 const user = require('./routes/user');
 const auth = require('./routes/auth');
-const book = require('./routes/book');
 const log = require('./routes/log');
-const role = require('./routes/role');
+const permission = require('./routes/permission');
 
 app.use('/api/auth', auth);
 app.use('/api/user', user);
-app.use('/api/book', book);
 app.use('/api/log', log);
-app.use('/api/role', role);
+app.use('/api/permission', permission);
 
 mongoose
     .connect('mongodb://db:27017/auth', {

@@ -1,26 +1,27 @@
 const express = require('express');
-const Role = require('../models/Role')
+const Permission = require('../models/Permission')
 
 module.exports = () => {
     const controller = {};
 
     controller.getAll = (req, res) => {
-        Role.find()
-            .then(roles => {
-                res.json(roles);
+        Permission.find()
+            .then(permissions => {
+                res.json(permissions);
             })
             .catch(error => res.status(500).json(error));
     }
 
     controller.add = (req, res) => {
-        const newRole = new Role({
-            name: req.body.name
+        const newPermission = new Permission({
+            name: req.body.name,
+            route: req.body.route
         });
 
-        newRole
+        newPermission
             .save()
-            .then(role => {
-                res.json(role);
+            .then(permission => {
+                res.json(permission);
             })
             .catch(error => {
                 res.status(500).json(error);
@@ -30,20 +31,21 @@ module.exports = () => {
     controller.edit = (req, res) => {
         const newData = {
             _id: req.params.id,
-            name: req.body.name
+            name: req.body.name,
+            route: req.body.route
         };
 
-        Role.findOneAndUpdate({ _id: req.params.id }, newData, { new: true })
-            .then(role => {
-                res.json(role);
+        Permission.findOneAndUpdate({ _id: req.params.id }, newData, { new: true })
+            .then(permission => {
+                res.json(permission);
             })
             .catch(error => res.status(500).json(error));
     }
 
     controller.delete = (req, res) => {
-        Role.findOneAndDelete({ _id: req.params.id })
-            .then(role => {
-                res.json(role);
+        Permission.findOneAndDelete({ _id: req.params.id })
+            .then(permission => {
+                res.json(permission);
             })
             .catch(error => res.status(500).json(error));
     }

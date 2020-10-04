@@ -22,10 +22,10 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    role: {
+    permissions: [{
         type: Schema.Types.ObjectId,
-        ref: "Role"
-    }
+        ref: "Permission"
+    }]
 });
 
 module.exports = mongoose.model('users', userSchema);

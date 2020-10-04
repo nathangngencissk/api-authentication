@@ -1,13 +1,8 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Log = require('../models/Log');
-const Role = require('../models/Role');
 
-function auth(roles = []) {
-    if (typeof roles === 'string') {
-        roles = [roles];
-    }
-
+function auth() {
     return [
         async (req, res, next) => {
 
@@ -23,24 +18,6 @@ function auth(roles = []) {
             if (req.body.userId && req.body.userId !== userId) {
                 throw 'Invalid user ID';
             }
-
-            let user = await User.findOne({ _id: userId });
-
-            let role = await Role.findOne({ _id: user.role })
-
-            if (roles) {
-                if (roles.length && !roles.includes(role.name)) {
-
-                    // Check if users role is authorized
-                    return res.status(401).json({ message: 'User unauthorized' });
-                }
-            }
-            const newLog = new Log({
-                user: user._id,
-                description: `User accessed ${req.originalUrl}.`
-            });
-
-            newLog.save();
 
             next();
         }
