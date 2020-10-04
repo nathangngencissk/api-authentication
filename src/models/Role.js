@@ -1,4 +1,11 @@
-module.exports = {
-    Admin: 'Admin',
-    Manager: 'Manager'
-}
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+const roleSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    }
+});
+
+module.exports = mongoose.model('roles', roleSchema);

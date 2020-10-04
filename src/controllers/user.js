@@ -17,7 +17,8 @@ module.exports = () => {
             name: req.body.name,
             cpf: req.body.cpf,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            role: req.body.role
         });
 
         newUser
