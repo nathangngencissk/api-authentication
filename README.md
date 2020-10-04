@@ -3,7 +3,7 @@ Authentication + Authorization system in NodeJS + MongoDB.
 
 ## How it works
 
-![Class diagram](https://raw.githubusercontent.com/nathangngencissk/api-authentication/master/classes_auth.png)
+![Class diagram](https://raw.githubusercontent.com/nathangngencissk/api-authentication/master/class_diagram.png)
 
 ![Process diagram](https://raw.githubusercontent.com/nathangngencissk/api-authentication/master/process_auth.png)
 
