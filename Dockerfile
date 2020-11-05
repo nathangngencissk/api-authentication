@@ -10,6 +10,6 @@ RUN npm install nodemon -g --quiet
 
 COPY . . 
 
-EXPOSE 9000
+EXPOSE 3333
 
 CMD nodemon -L --watch . index.js

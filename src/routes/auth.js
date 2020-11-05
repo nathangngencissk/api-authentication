@@ -25,7 +25,7 @@ router.post('/authenticate', (req, res) => {
             newLog.save();
 
             res.status(200).json({
-                userId: user._id,
+                user: user,
                 token: token
             });
         }

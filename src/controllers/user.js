@@ -81,19 +81,6 @@ module.exports = () => {
                 user: user._id,
                 permissions: userPermissions
             })
-
-            // user.permissions.forEach(async userPermission => {
-
-            //     let permission = await Permission.findOne({ _id: userPermission });
-
-            //     permissions.push({
-            //         permissionId: permission._id,
-            //         permissionName: permission.name,
-            //         route: permission.route
-            //     });
-
-            //     console.log(permissions)
-            // })
         }
         catch (error) {
             res.status(500).json(error)

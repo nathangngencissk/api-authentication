@@ -1,10 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use(cors());
 
 const user = require('./routes/user');
 const auth = require('./routes/auth');
@@ -28,4 +31,4 @@ mongoose
         console.log(error);
     });
 
-app.listen(9000, () => console.log('Server connected at 9000'));
+app.listen(3333, () => console.log('Server connected at 3333'));
